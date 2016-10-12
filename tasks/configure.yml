@@ -18,7 +18,7 @@
     group: root
     mode: 0644
   notify:
-      - restart grafana
+      - restart grafana-server
 
 - name: Deploy Grafana Config Ini file
   template:
@@ -28,7 +28,7 @@
     group: root
     mode: 0644
   notify:
-    - restart grafana
+    - restart grafana-server
 
 - name: Deploy Grafana Config Ini file
   template:
@@ -38,6 +38,6 @@
     group: root
     mode: 0644
   notify:
-    - restart grafana
+    - restart grafana-server
 
 - meta: flush_handlers
