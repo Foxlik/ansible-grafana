@@ -1,0 +1,36 @@
+---
+- name: Setup Grafana Wheezy Repository
+  apt_repository:
+    repo: "deb https://packagecloud.io/grafana/stable/debian/ wheezy main"
+    state: present
+  register: add_grafana_apt
+  until: add_grafana_apt | success
+  retries: 5
+  delay: 3
+
+- name: Install Grafana Apt Key
+  apt_key:
+    url: "https://packagecloud.io/gpg.key"
+    state: present
+  register: add_grafana_apt_key
+  until: add_grafana_apt_key | success
+  retries: 5
+  delay: 3
+
+- name: Update Apt repos
+  apt:
+    update_cache: yes
+  register: update_cache
+  until: update_cache | success
+  retries: 5
+  delay: 3
+
+- name: Install Grafana
+  apt:
+    pkg: grafana
+    state: latest
+  register: install_grafana
+  until: install_grafana | success
+  retries: 5
+  delay: 3
+

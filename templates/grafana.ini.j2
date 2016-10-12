@@ -1,0 +1,13 @@
+[auth.keystone]
+enabled = true
+auth_url = {{ keystone_url }}
+[database]
+type = mysql
+host = {{ mysql_url }}
+name = {{ grafana_mysql_db }}
+user = {{ grafana_mysql_user }}
+password = {{ grafana_mysql_password }}
+ssl_mode = skip-verify
+[security]
+admin_user = admin
+admin_password = {{ grafana_admin_password }}

@@ -1,0 +1,21 @@
+---
+- name: Download Go
+  get_url:
+    url: "https://storage.googleapis.com/golang/{{ grafana_golang_version }}.tar.gz"
+    dest: "/root/{{ grafana_golang_version }}.tar.gz"
+    mode: 0440
+  register: download_go
+  until: download_go | success
+  retries: 5
+  delay: 3
+
+- name: Install Go
+  unarchive:
+    src: "/root/{{ grafana_golang_version }}.tar.gz"
+    dest: /usr/local
+    creates: /usr/local/go
+    copy: no
+  register: install_go
+  until: install_go | success
+  retries: 5
+  delay: 3

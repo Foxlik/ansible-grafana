@@ -1,0 +1,9 @@
+---
+
+- include: install_go.yml
+
+- include: DebianInst.yml
+  when: "ansible_os_family == 'Debian'"
+
+- include: RedHatInst.yml
+  when: "ansible_os_family == 'RedHat'"

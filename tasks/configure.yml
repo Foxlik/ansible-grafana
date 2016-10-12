@@ -1,0 +1,43 @@
+---
+- name: Deploy Grafana Server systemd config
+  template:
+    src: grafana-server.systemd.j2
+    dest: /etc/systemd/system/grafana-server.service
+    owner: root
+    group: root
+    mode: 0755
+  notify:
+    - reload systemd
+  when: init_service == 'systemd'
+
+- name: Deploy Grafana Config Ini file
+  template:
+    src: grafana.ini.j2
+    dest: /etc/grafana/grafana.ini
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+      - restart grafana
+
+- name: Deploy Grafana Config Ini file
+  template:
+    src: grafana.ini.j2
+    dest: /etc/grafana/grafana.ini
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart grafana
+
+- name: Deploy Grafana Config Ini file
+  template:
+    src: grafana-default.j2
+    dest: /etc/default/grafana
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart grafana
+
+- meta: flush_handlers
