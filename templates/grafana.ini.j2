@@ -1,9 +1,9 @@
 [auth.keystone]
 enabled = true
-auth_url = {{ keystone_url }}
+auth_url = {{ grafana_keystone_url }}
 [database]
 type = mysql
-host = {{ mysql_url }}
+host = {{ grafana_mysql_host }}
 name = {{ grafana_mysql_db }}
 user = {{ grafana_mysql_user }}
 password = {{ grafana_mysql_password }}
