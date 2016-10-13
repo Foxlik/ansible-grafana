@@ -21,5 +21,9 @@ grafana_data_dir: /srv/grafana/data
 grafana_log_dir: /var/log/grafana
 grafana_plugins_dir: /srv/grafana/plugins
 
+grafana_plugins:
+    - url: https://github.com/openstack/monasca-grafana-datasource/archive/master.zip
+      name: monasca-grafana-datasource-master
+
 grafana_log_mode: console
 grafana_log_level: info

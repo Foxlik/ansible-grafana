@@ -1,4 +1,18 @@
 ---
 
+- name: Install required plugins
+  unarchive:
+    src: "{{ item.url }}"
+    dest: "{{ grafana_plugins_dir }}"
+    creates: "{{ grafana_plugins_dir }}/{{ item.name }}"
+    owner: grafana
+    group: grafana
+    copy: no
+  notify:
+    - restart grafana-server
+  with_items:
+    - "{{ grafana_plugins }}"
+
+
 # install https://github.com/openstack/monasca-grafana-datasource
 # https://github.com/grafana/grafana/pull/3963
