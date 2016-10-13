@@ -7,3 +7,14 @@
 
 - include: RedHatInst.yml
   when: "ansible_os_family == 'RedHat'"
+
+- name: Create required directories
+  file:
+    state: directory
+    path: '{{ item }}'
+    owner: grafana
+    recurse: yes
+  with_items:
+    - '{{ grafana_log_dir }}'
+    - '{{ grafana_data_dir }}'
+    - '{{ grafana_plugins_dir }}'

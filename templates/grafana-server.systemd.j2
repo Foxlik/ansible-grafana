@@ -14,12 +14,7 @@ WorkingDirectory=/usr/share/grafana
 PermissionsStartOnly=true
 ExecStartPre=/bin/mkdir -p /var/run/grafana
 ExecStartPre=/bin/chown -R grafana:grafana /var/run/grafana
-ExecStart=/usr/sbin/grafana-server                                \
-                            --config=${CONF_FILE}                 \
-                            --pidfile=${PID_FILE}                 \
-                            cfg:default.paths.logs=${LOG_DIR}     \
-                            cfg:default.paths.data=${DATA_DIR}    \
-                            cfg:default.paths.plugins=${PLUGINS_DIR}
+ExecStart=/usr/sbin/grafana-server -config=${CONF_FILE} -pidfile=${PID_FILE}
 LimitNOFILE=10000
 TimeoutStopSec=20
 UMask=0027
