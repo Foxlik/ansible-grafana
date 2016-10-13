@@ -3,5 +3,6 @@
   include_vars: "{{ ansible_distribution | lower }}-{{ ansible_distribution_version | lower }}.yml"
 
 - include: install.yml
+- include: plugins.yml
 - include: configure.yml
 - include: start.yml

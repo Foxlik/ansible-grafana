@@ -20,3 +20,19 @@
 ## License
 
 MIT
+
+## OpenStack Integration
+
+Currently Openstack/Monasca integration is blocked by non existing keystone auth plugin.
+
+##### Grafana PR for keystone support
+
+https://github.com/grafana/grafana/pull/3963
+
+##### Updated Grafana repo with grafana 2.6 version and implemented keystone auth plugin
+
+https://github.com/twc-openstack/grafana
+
+##### Grafana monasca datasource
+
+https://github.com/twc-openstack/grafana-plugins
