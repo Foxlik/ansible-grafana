@@ -8,7 +8,7 @@ grafana_db_type: mysql #Could be any of mysq/sqlite3/postgresql
 
 grafana_sqlite3_path: /src/grafana/grafana.sqlite3.db
 
-grafana_mysql_host: localhost
+grafana_mysql_host: localhost:3306
 grafana_mysql_db: grafana
 grafana_mysql_user: grafana
 grafana_mysql_password: secrete
