@@ -9,5 +9,5 @@ grafana_mysql_db: grafana
 grafana_mysql_user: grafana
 grafana_mysql_password: secrete
 
-grafana_data_directory: /srv/grafana
-grafana_log_directory: /var/log/grafana
+grafana_data_dir: /srv/grafana
+grafana_log_dir: /var/log/grafana

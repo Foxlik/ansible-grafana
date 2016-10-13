@@ -20,17 +20,7 @@
   notify:
       - restart grafana-server
 
-- name: Deploy Grafana Config Ini file
-  template:
-    src: grafana.ini.j2
-    dest: /etc/grafana/grafana.ini
-    owner: root
-    group: root
-    mode: 0644
-  notify:
-    - restart grafana-server
-
-- name: Deploy Grafana Config Ini file
+- name: Deploy Grafana Default file
   template:
     src: grafana-default.j2
     dest: /etc/default/grafana
