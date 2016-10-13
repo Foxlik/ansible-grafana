@@ -10,7 +10,7 @@ host = {{ grafana_mysql_host }}
 name = {{ grafana_mysql_db }}
 user = {{ grafana_mysql_user }}
 password = {{ grafana_mysql_password }}
-ssl_mode = skip-verify
+ssl_mode = false
 {% elif grafana_db_type == 'sqlite3' %}
 path = {{ grafana_sqlite3_path }}
 {% endif %}
