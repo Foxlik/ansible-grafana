@@ -1,8 +1,15 @@
 ---
 
+- name: Fetch plugins from remote site
+  get_url:
+    url: "{{ item.url }}"
+    dest: "/tmp/{{ item.name }}"
+  with_items:
+    - "{{ grafana_plugins }}"
+
 - name: Install required plugins
   unarchive:
-    src: "{{ item.url }}"
+    src: "/tmp/{{ item.name }}"
     dest: "{{ grafana_plugins_dir }}"
     creates: "{{ grafana_plugins_dir }}/{{ item.name }}"
     owner: grafana

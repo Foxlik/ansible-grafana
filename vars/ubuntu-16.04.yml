@@ -1,6 +1,4 @@
 ---
 
-init_service: systemd
-
 dep_packages:
     - unzip
