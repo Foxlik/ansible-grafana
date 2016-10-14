@@ -1,3 +1,6 @@
 ---
 
 init_service: upstart
+
+dep_packages:
+    - unzip
