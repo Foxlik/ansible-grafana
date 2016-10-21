@@ -10,6 +10,7 @@
 | grafana_golang_version      | go1.7.linux-amd64     | Go version to install on a system         |
 | grafana_admin_password      | GrafanaPass           | Grafana admin password                    |
 | grafana_mysql_host          | localhost             | Grafana DB host                           |
+| grafana_mysql_port          | 3306                  | Grafana DB port                           |
 | grafana_mysql_db            | grafana               | Grafana backend database                  |
 | grafana_mysql_user          | grafana               | Grafana database access user              |
 | grafana_mysql_password      | secrete               | Grafana database access user password     |
