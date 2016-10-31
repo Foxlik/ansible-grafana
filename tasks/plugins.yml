@@ -6,6 +6,8 @@
     dest: "/tmp/{{ item.name }}"
   with_items:
     - "{{ grafana_plugins }}"
+  retries: 5
+  delay: 5
 
 - name: Install required plugins
   unarchive:
