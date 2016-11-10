@@ -1,7 +1,7 @@
 ---
 - name: Setup Grafana Wheezy Repository
   apt_repository:
-    repo: "deb https://packagecloud.io/grafana/stable/debian/ wheezy main"
+    repo: "deb https://dl.bintray.com/haad/monasca xenial main"
     state: present
   register: add_grafana_apt
   until: add_grafana_apt | success
@@ -10,7 +10,8 @@
 
 - name: Install Grafana Apt Key
   apt_key:
-    url: "https://packagecloud.io/gpg.key"
+    keyserver: hkp://keyserver.ubuntu.com:80
+    id: 379CE192D401AB61
     state: present
   register: add_grafana_apt_key
   until: add_grafana_apt_key | success
@@ -28,6 +29,7 @@
 - name: Install Grafana
   apt:
     pkg: grafana
+    force: yes
     state: latest
   register: install_grafana
   until: install_grafana | success

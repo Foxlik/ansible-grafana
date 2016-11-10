@@ -23,7 +23,8 @@ grafana_log_dir: /var/log/grafana
 grafana_plugins_dir: /srv/grafana/plugins
 
 grafana_plugins:
-    - url: https://github.com/openstack/monasca-grafana-datasource/archive/master.zip
+    - url: https://github.com/openstack/monasca-grafana-datasource/archive
+      version: 19a5c2674463af3c317b92c79f18b3609f9be96e
       name: monasca-grafana-datasource-master
 
 grafana_log_mode: console
