@@ -1,6 +1,16 @@
 [auth.keystone]
 enabled = true
 auth_url = {{ grafana_keystone_url }}
+v3 = true
+default_domain = default
+default_role =
+global_admin_roles =
+admin_roles = admin
+editor_roles = _member_
+read_editor_roles =
+viewer_roles =
+verify_ssl_cert = true
+root_ca_pem_file =
 
 [database]
 type = {{ grafana_db_type }}
