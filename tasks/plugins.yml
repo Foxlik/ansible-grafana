@@ -3,7 +3,7 @@
 - name: Fetch plugins from remote site
   get_url:
     url: "{{ item.url }}/{{ item.version }}.zip"
-    dest: "/tmp/{{ item.name }}.zip"
+    dest: "/tmp/{{ item.name }}-{{ item.version }}.zip"
   with_items:
     - "{{ grafana_plugins }}"
   retries: 5
@@ -11,9 +11,9 @@
 
 - name: Install required plugins
   unarchive:
-    src: "/tmp/{{ item.name }}.zip"
+    src: "/tmp/{{ item.name }}-{{ item.version }}.zip"
     dest: "{{ grafana_plugins_dir }}"
-    creates: "{{ grafana_plugins_dir }}/{{ item.name }}"
+    creates: "{{ grafana_plugins_dir }}/{{ item.name }}-{{ item.version }}"
     owner: grafana
     group: grafana
     copy: no
@@ -21,6 +21,11 @@
     - restart grafana-server
   with_items:
     - "{{ grafana_plugins }}"
+
+- name: Remove temp file
+  file:
+    name: "/tmp/{{ item.name }}-{{ item.version }}.zip"
+    state: absent
 
 
 # install https://github.com/openstack/monasca-grafana-datasource
